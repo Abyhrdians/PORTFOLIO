@@ -160,13 +160,15 @@ img:hover{
     flex-direction: row;
 }
 .services .content .servicesBx{
-    padding: 40px 20px;
+    padding: 40px 15px;
     background: #222;
     color: #fff;
     max-width: 340px;
     margin: 10px;
     text-align: center;
     transition: 0.5s;
+    box-shadow: 5px 3px 10px rgba(219, 213, 213, 0.2);
+    border-radius: 15px;
 }
 .services .content .servicesBx:hover{
     background: #F39C12;
@@ -220,6 +222,9 @@ main.row{
 	cursor: pointer;
 	transition: all 0.4s;
 	margin-bottom: 20px;
+    border-radius:10px;
+    box-shadow:5px 3px 10px rgba(63, 61, 61, 0.2);
+
 }
 .col .contents .box:hover{
 	box-shadow: 0px 3px 12px 0px #ccc;
