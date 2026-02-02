@@ -1,285 +1,465 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portofolio | Aby</title>
+    <meta name="description" content="Aby Herdiansyah - Informatics Engineering Specialist | Full-Stack Developer | IoT & Data Analytics Expert">
+    <meta name="keywords" content="web developer, full-stack, portfolio, informatics engineer, laravel, react">
+    <meta name="author" content="Aby Herdiansyah">
+    <meta name="theme-color" content="#0d6efd">
+    <meta property="og:title" content="Aby Herdiansyah | Portfolio">
+    <meta property="og:description" content="Informatics Engineering Specialist with expertise in web systems and data-driven insights">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abyherdians.com">
+    
+    <title>Aby Herdiansyah | Portfolio - Informatics Engineer & Full-Stack Developer</title>
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="aset/logo.png" type="image/x-icon">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%230d6efd'>A</text></svg>">
 </head>
 <body>
-    <header class="sticky">
-        <a href="#home" class="logo">Portofolio</a>
-        <div class="toggle" onclick="toggleMenu();"></div>
-        <ul class="menu">
-            <li><a href="#home" onclick="toggleMenu();">Home</a></li>
-            <li><a href="#about" onclick="toggleMenu();">About</a></li>
-            <li><a href="#services" onclick="toggleMenu();">Service</a></li>
-            <li><a href="#exp" onclick="toggleMenu();">Experience</a></li>
-            <li><a href="#skill" onclick="toggleMenu();">Skill</a></li>
-            <li><a href="#footer" onclick="toggleMenu();">Contact</a></li>
-        </ul>
-    </header>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
 
-    <section class="banner" id="home">
-        <div class="textBx">
-            <h2>Hello, I'm <br> <span>Aby Herdiansyah</span></h2>
-            <h3>I'm a Student informatics Engineering</h3>
-            <a href="https://drive.google.com/file/d/1DuEeIr4lVGflurZIeGXJ_lk5Aw-MoqJs/view?usp=drive_link" class="btn" target="_blank">curriculum vitae</a><br>
-            <a href="https://www.linkedin.com/in/aby-herdiansyah/" class="btn" target="_blank">Hire Me</a>
-        </div>
-    </section>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3 header-nav" data-component="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand fw-bold" href="#" data-target="brand" aria-label="Aby Herdiansyah Portfolio Home">
+                ABY<span class="text-primary" aria-hidden="true">.</span>
+            </a>
+            
+            <!-- Header Controls -->
+            <div class="d-flex align-items-center order-lg-last ms-2 gap-2">
+                <!-- Theme Toggle Button -->
+                <button class="btn btn-link nav-link px-2" 
+                        id="bd-theme" 
+                        type="button" 
+                        aria-label="Toggle dark/light theme"
+                        data-bs-toggle="tooltip" 
+                        title="Toggle theme"
+                        onclick="toggleTheme()">
+                    <i class="fas fa-sun" id="theme-icon" aria-hidden="true"></i>
+                </button>
 
-    <section class="about" id="about">
-        <div class="heading">
-            <h2>About Me</h2>
+                <!-- Mobile Menu Toggle -->
+                <button class="navbar-toggler border-0" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" 
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="#home" data-nav-link role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="#about" data-nav-link role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="#exp" data-nav-link role="menuitem">Experience</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="#portfolio" data-nav-link role="menuitem">Projects</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link btn btn-primary btn-sm ms-lg-3 text-white px-3 mt-2 mt-lg-0 shadow-sm" 
+                           href="#footer" 
+                           data-nav-link 
+                           role="menuitem">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="content">
-            <div class="contentBx w50">
-                <h3>Introduce myself</h3>
-                <p> 6th semester Informatics Engineering student at Nusantara Islamic University who is proficient in various programming languages and Microsoft programs. Strong ability for collaboration within a team and working independently. Excellent communication skills complemented by a desire to analyzed data. Opportunities to apply programming skills, data statistics, and programming processes to encourage insightful decision making and encourage the ability to be quick and responsive in all matters in both academic and professional environments.</p>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="min-vh-100 d-flex align-items-center pt-5 hero-bg" data-section="hero" role="region" aria-labelledby="hero-heading">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
+                        <!-- Status Badge -->
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3" 
+                              data-component="status-badge">
+                            <i class="fas fa-circle fa-xs me-2 animate-pulse" aria-hidden="true"></i>
+                            <span>Available for Opportunity</span>
+                        </span>
+
+                        <!-- Main Heading -->
+                        <h1 class="display-3 fw-bolder mb-2" id="hero-heading">
+                            I'm <span id="typewriter" class="name-animation" data-component="typewriter" role="status" aria-live="polite"></span>
+                        </h1>
+
+                        <!-- Job Title -->
+                        <h2 class="h3 text-secondary mb-4">Informatics Engineering Specialist</h2>
+
+                        <!-- Description -->
+                        <p class="lead text-body-secondary mb-5 pe-lg-5">
+                            Informatics Engineering graduate <strong>(GPA 3.65)</strong> with a focus on high-performance web systems and data-driven insights. Proven record in leading Agile teams and optimizing system efficiency.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="d-flex gap-3 flex-wrap" data-component="cta-buttons">
+                            <a href="https://drive.google.com/file/d/1DuEeIr4lVGflurZIeGXJ_lk5Aw-MoqJs/view" 
+                               class="btn btn-primary btn-lg px-4 fw-bold shadow" 
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               data-action="download-cv">
+                                <i class="fas fa-download me-2" aria-hidden="true"></i>Download CV
+                            </a>
+                            <a href="https://linkedin.com/in/aby-herdiansyah/" 
+                               class="btn btn-outline-primary btn-lg px-4 fw-bold"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               data-action="visit-linkedin">
+                                <i class="fab fa-linkedin me-2" aria-hidden="true"></i>LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="exp" class="py-5 section-bg" data-section="experience" role="region" aria-labelledby="exp-heading">
+            <div class="container py-5">
+                <!-- Section Header -->
+                <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
+                    <h2 class="fw-bold display-5" id="exp-heading">Professional Journey</h2>
+                    <div class="mx-auto bg-primary rounded" style="width: 60px; height: 4px;" aria-hidden="true"></div>
+                </div>
+                
+                <!-- Experience Cards -->
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+
+                        <!-- Card 1: BRI -->
+                        <article class="card border-0 mb-4 rounded-4 shadow-sm timeline-card" 
+                                 data-aos="fade-up" 
+                                 data-aos-duration="800"
+                                 data-experience-card="1">
+                            <div class="card-body p-4">
+                                <div class="d-md-flex justify-content-between align-items-start mb-3 gap-3">
+                                    <div>
+                                        <span class="text-primary fw-bold small text-uppercase" data-badge="category">Banking & Finance</span>
+                                        <h3 class="fw-bold h4 mt-2 mb-1">Retail Funding Department</h3>
+                                        <p class="text-secondary mb-0">PT Bank Rakyat Indonesia (Persero) Tbk.</p>
+                                    </div>
+                                    <span class="badge bg-body-tertiary text-body border p-2 px-3 mt-2 mt-md-0 text-nowrap" data-badge="date">
+                                        Nov 2025 - Present
+                                    </span>
+                                </div>
+                                <ul class="text-body-secondary list-unstyled" data-component="achievements">
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Optimized customer data processing with an 80% completion rate.</li>
+                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Ensuring high data accuracy and cross-departmental coordination.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <!-- Card 2: Radar -->
+                        <article class="card border-0 mb-4 rounded-4 shadow-sm timeline-card" 
+                                 data-aos="fade-up" 
+                                 data-aos-delay="100"
+                                 data-aos-duration="800"
+                                 data-experience-card="2">
+                            <div class="card-body p-4">
+                                <div class="d-md-flex justify-content-between align-items-start mb-3 gap-3">
+                                    <div>
+                                        <span class="text-primary fw-bold small text-uppercase" data-badge="category">Telecommunication</span>
+                                        <h3 class="fw-bold h4 mt-2 mb-1">Lead Web Developer <small class="text-secondary">(Agile Team)</small></h3>
+                                        <p class="text-secondary mb-0">PT Radar Telekomunikasi Indonesia</p>
+                                    </div>
+                                    <span class="badge bg-body-tertiary text-body border p-2 px-3 mt-2 mt-md-0 text-nowrap" data-badge="date">
+                                        May - Aug 2025
+                                    </span>
+                                </div>
+                                <ul class="text-body-secondary list-unstyled" data-component="achievements">
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Developed web applications by leading an Agile team (80% efficiency increase).</li>
+                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Accelerated development speed by 90% through Git version control & CI/CD.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="py-5" data-section="portfolio" role="region" aria-labelledby="portfolio-heading">
+            <div class="container py-5">
+                <!-- Section Header -->
+                <h2 class="fw-bold display-5 text-center mb-5" id="portfolio-heading" data-aos="fade-up" data-aos-duration="800">
+                    Technical Projects
+                </h2>
+
+                <!-- Projects Grid -->
+                <div class="row g-4" data-component="projects-grid">
+
+                    <!-- Project Card 1: Smart Greenhouse -->
+                    <div class="col-md-6" data-aos="zoom-in" data-aos-duration="800">
+                        <article class="card h-100 border-0 rounded-4 overflow-hidden shadow-sm project-card" 
+                                 data-project-card="1"
+                                 data-project-category="iot">
+                            <!-- Project Image -->
+                            <figure class="project-img-container m-0">
+                                <img src="aset/SGH.jpeg" 
+                                     class="card-img-top" 
+                                     alt="Smart Greenhouse System - IoT monitoring interface"
+                                     loading="lazy"
+                                     decoding="async"
+                                     data-component="project-image">
+                            </figure>
+
+                            <!-- Project Info -->
+                            <div class="card-body p-4 d-flex flex-column">
+                                <span class="text-primary fw-bold small text-uppercase" data-badge="category">IoT & Web</span>
+                                <h3 class="h4 fw-bold mt-2 mb-3">Smart Greenhouse System</h3>
+                                <p class="text-secondary small flex-grow-1">
+                                    Laravel-based monitoring & controlling system for hydroponics using automated sensors.
+                                </p>
+                                <div class="mt-3" data-component="tech-stack">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">Laravel</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">IoT</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary small">MySQL</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Project Card 2: MSIB Analytics -->
+                    <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
+                        <article class="card h-100 border-0 rounded-4 overflow-hidden shadow-sm project-card"
+                                 data-project-card="2"
+                                 data-project-category="analytics">
+                            <!-- Project Image -->
+                            <figure class="project-img-container m-0">
+                                <img src="aset/msib.jpeg" 
+                                     class="card-img-top" 
+                                     alt="MSIB Data Analytics - Looker Studio dashboard"
+                                     loading="lazy"
+                                     decoding="async"
+                                     data-component="project-image">
+                            </figure>
+
+                            <!-- Project Info -->
+                            <div class="card-body p-4 d-flex flex-column">
+                                <span class="text-primary fw-bold small text-uppercase" data-badge="category">Data Analytics</span>
+                                <h3 class="h4 fw-bold mt-2 mb-3">MSIB Batch 5 Analytics</h3>
+                                <p class="text-secondary small flex-grow-1">
+                                    Processing raw data into Looker Studio dashboards to drive business decisions.
+                                </p>
+                                <div class="mt-3" data-component="tech-stack">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">Google Analytics</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">Looker Studio</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary small">Data Processing</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER / CONTACT SECTION -->
+        <footer id="footer" class="py-5 section-bg" data-section="footer" role="contentinfo">
+            <div class="container text-center">
+                <h2 class="fw-bold mb-4" data-aos="fade-up" data-aos-duration="800">Let's Connect</h2>
+
+                <!-- Social Links -->
+                <nav class="d-flex justify-content-center gap-4 fs-3 mb-5" aria-label="Social media links" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    <a href="https://github.com/Abyhrdians" 
+                       class="text-body hover-primary" 
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Visit GitHub profile"
+                       data-social="github">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/aby-herdiansyah/" 
+                       class="text-body hover-primary"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Visit LinkedIn profile"
+                       data-social="linkedin">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:Abyherdiansyah24@gmail.com" 
+                       class="text-body hover-primary"
+                       aria-label="Send email"
+                       data-social="email">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </nav>
+
+                <!-- Copyright -->
+                <p class="text-secondary small mb-0">
+                    &copy; <span id="current-year">2026</span> Aby Herdiansyah. Built with Modern Tech.
                 </p>
             </div>
-            <div class="w50">
-                <img src="../aset/image12.jpeg" class="img">
-            </div>
-        </div>
-    </section>
+        </footer>
 
-    <section class="services" id="services">
-        <div class="heading white">
-            <h2>Basic Skills</h2>
-            <p>Here are the basic skills I possess</p>
-        </div>
-        <div class="content">
-            <div class="servicesBx">
-                <h2>Team Work</h2>
-                <p>Effective collaboration within a team fosters synergy and cooperation, where a supportive environment and strong team spirit ensure that everyone feels valued, understands team dynamics, shares responsibilities, and contributes to innovative solutions through joint efforts, resulting in exceptional performance and success.</p>
-            </div>
-            <div class="servicesBx">
-                <h2>Frontend Development</h2>
-                <p>In my journey in the IT world, I have honed a strong skill set in website development by learning HTML, CSS, and JavaScript. I became interested in learning all of this since I was in school, and my enthusiasm continued to burn brightly as I pursued further education in college to deepen these skills. This web portfolio serves as evidence that I have the skills to create websites.</p>
-            </div>
-            <div class="servicesBx">
-                <h2>Problem-Solving</h2>
-                <p>Approaching problems with an analytical mindset and a solution-oriented attitude allows for quick troubleshooting and resourceful, innovative thinking, ultimately leading to effective root cause analysis and successful resolution.</p>
-            </div>
-            <div class="servicesBx">
-                <h2>Critical Thinking</h2>
-                <p>Utilizing logical reasoning and evaluation skills with objectivity and a questioning mindset enables one to make evidence-based decisions, fostering healthy skepticism and uncovering underlying truths.</p>
-            </div>
-            <div class="servicesBx">
-                <h2>Play Game</h2>
-                <p>
-                    When feeling drained and hitting a wall while working on a program, I often indulge in a brief gaming session to alleviate the stress of hitting a creative roadblock. Surprisingly, after that, my mind feels rejuvenated, brimming with new energy, and ready to dive back into work with a fresh perspective.</p>
-            </div>
-            <div class="servicesBx">
-                <h2>Communication</h2>
-                <p>Clear, concise communication with active listening and empathy ensures accurate understanding and appropriate responses, while providing constructive feedback and recognizing non-verbal cues enhances communication effectiveness and rapport building.</p>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <div class="exp" id="exp">
-        <main class="row">
-            <div class="col">
-                <div class="title">
-                    <h2>Education</h2>
-                    <p>Here is my educational background.</p>
-                </div>
-                <div class="contents">
-                    <div class="box">
-                        <h4>2017 - 2020</h4>
-                        <h5>SMA KARYA BUDI</h5>
-                        <h3>Natural Sciences</h3>
-                        <p></p>
-                    </div>
-
-                    <div class="box">
-                        <h4>2021 - 2025</h4>
-                        <h5>Universitas Islam Nusantara</h5>
-                        <h3>S1 - Teknik Informatika</h3>
-                        <p>After feeling that my programming knowledge was still insufficient, I decided to deepen my understanding by pursuing a Bachelor's degree because I believe that from here, I can achieve my dream of becoming a Fullstack Developer.</p>
-                    </div>
-
-                    <div class="box">
-                        <h4>Augst 2023</h4>
-                        <h5>PT Revolusion Citra Edukasi</h5>
-                        <h3>Program Magang dan Studi Independen Bersertifikat (MSIB) Batch 5</h3>
-                        <p>Providing education in the field of data analysis and software engineering that is proven with very satisfactory grades can reflect a high commitment to technical excellence and dedication given to this field.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="title">
-                    <h2>Work experience</h2>
-                    <p>Here is my work experience during the internship.</p>
-                </div>  
-                <div class="contents">
-                    <div class="box">
-                        <h4>2023 - Present</h4>
-                        <h5>Raudhatul Athfal Al -Mujahidin</h5>
-                        <h3>Staff Administrasion</h3>
-                        <p>managing files and other needs to make it easier to find and to make it neater and more time efficient, in this case it is done by experts so that it is well managed.</p>
-                    </div>   
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <div class="m-skill" id="skill">
-        <div class="heading">
-            <h2>Skill programming</h2>
-            <p>Here are the Skill programming I possess</p>
-        </div>
-            <div class="box-skill">
-                <div class="box">
-                    <img src="aset/icon-1.png" alt="">
-                    <h3>HTML 5</h3>
-                    <p>I have a strong knowledge of using HTML to develop responsive and user-friendly web pages.</p>
-                </div>
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     
-                <div class="box">
-                    <img src="aset/icon-2.png" alt="">
-                    <h3>CSS 3</h3>
-                    <p>I have strong skills in using CSS to design and develop the layout and visual appearance of web pages</p>
-                </div>
-    
-                <div class="box">
-                    <img src="aset/icon-3.png" alt="">
-                    <h3>JavaScript</h3>
-                    <p>I have solid skills in using JavaScript to provide interactivity and dynamic functionality to web pages.</p>
-                </div>
-    
-                <div class="box">
-                    <img src="aset/xampp.png" alt="">
-                    <h3>MySQL</h3>
-                    <p>I have strong experience in using PostgreSQL as a database management system (DBMS) to efficiently and reliably manage data</p>
-                </div>
+    <script>
+        // ==========================================
+        // CONFIGURATION
+        // ==========================================
+        const CONFIG = {
+            aos: {
+                duration: 800,
+                once: true,
+                offset: 100
+            },
+            typewriter: {
+                loop: true,
+                delay: 75,
+                strings: ['Aby Herdiansyah'],
+                pauseFor: 2500,
+                deleteSpeed: 50
+            }
+        };
 
-                <div class="box">
-                    <img src="aset/nodejs.png" alt="">
-                    <h3>node.js</h3>
-                    <p>In my experience, I have successfully designed and developed complex and dynamic UI components using React.js.</p>
-                </div>
-
-                <div class="box">
-                    <img src="aset/icon-7.png" alt="">
-                    <h3>Laravel</h3>
-                    <p>During previous projects, I have used Laravel to implement various features, such as user authentication, CRUD operations, email sending, and task scheduling.</p>
-                </div>
-
-                <div class="box">
-                    <img src="aset/icon-9.png" alt="">
-                    <h3>PHP</h3>
-                    <p>Since the beginning of my IT learning journey, I have been slightly more focused on learning and mastering PHP and have used it in various web development projects.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="m-skill" id="skill">
-            <div class="heading">
-                <h2>Skill Data Analytics</h2>
-                <p>Here are the Skill Data Analytics I possess</p>
-            </div>
-                <div class="box-skill">
-                    <div class="box">
-                        <img src="aset/collection.png" alt="">
-                        <h3>Data Collection</h3>
-                        <p>I have a strong knowledge of using HTML to develop responsive and user-friendly web pages.</p>
-                    </div>
-        
-                    <div class="box">
-                        <img src="aset/cleaning.png" alt="">
-                        <h3>Data Cleaning</h3>
-                        <p>The process of gathering and measuring information on variables of interest, in an established systematic fashion that enables one to answer stated research questions, test hypotheses, and evaluate outcomes.</p>
-                    </div>
-        
-                    <div class="box">
-                        <img src="aset/modelling.png" alt="">
-                        <h3>Data Modeling</h3>
-                        <p>The process of creating a visual representation of either a whole information system or parts of it to communicate connections between data points and structures.</p>
-                    </div>
-        
-                    <div class="box">
-                        <img src="aset/statiscal.png" alt="">
-                        <h3>Statical Analysis</h3>
-                        <p>Investigating trends, patterns, and relationships using quantitative data.</p>
-                    </div>
-        
-                    <div class="box">
-                        <img src="aset/icon-14.jpg" alt="">
-                        <h3>Data Visualization</h3>
-                        <p>The graphical representation of information and data.</p>
-                    </div>
-
-                    <div class="box">
-                        <img src="aset/icon-13.jpg" alt="">
-                        <h3>Big Data Processing</h3>
-                        <p> A set of techniques or programming models to access large-scale data to extract useful information for supporting and providing decisions.</p>
-                    </div>
-                </div>
-
-        
-        <div class="exp" id="exp">
-            <main class="row">
-                <div class="col">
-                    <h2>Portofolio</h2>
-                </div>
-            </main>
-        </div>
-        
-
-           
-
-    <footer>
-        <div class="container" id="footer">
-            <div class="footer-content">
-                <h3>My Contact</h3>
-                <p>Email    : Abyherdiansyah24@gmail.com</p>
-                <p>Phone    : +62-821-1867-7353</p>
-                <p>Address  : Komp Duta Taman Cileunyi Blok 2A NO 63</p>
-            </div>
-            <div class="footer-content">
-                <h3>Quick Links</h3>
-                 <ul class="list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Service</a></li>
-                    <li><a href="#exp">Experience</a></li>
-                    <li><a href="#skill">Skill</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                 </ul>
-            </div>
-            <div class="footer-content">
-                <h3>Follow Us</h3>
-                <ul class="social-icons">
-                 <li><a href="https://www.facebook.com/abyh.maulana/" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                 <li><a href="https://github.com/Abyhrdians" target="_blank"><i class="fab fa-github"></i></a></li>
-                 <li><a href="https://www.instagram.com/abyhrdians/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                 <li><a href="https://www.linkedin.com/in/aby-herdiansyah/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-                </div>
-        </div>
-        <div class="bottom-bar">
-            <p>&copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Portofolio Personal . All rights reserved - Design By Aby Herdiansyah</p>
-        </div>
-    </footer>
-
-    <script type="text/javascript">
-        window.addEventListener('scroll', function(){
-            var header = document.querySelector('header');
-            header.classList.toggle('sticky', window.scrollY > 0);
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            initAOS();
+            initTypewriter();
+            initTheme();
+            initScrollBehavior();
+            initCurrentYear();
+            initTooltips();
         });
 
-        function toggleMenu(){
-            var menuToggle = document.querySelector('.toggle');
-            var menuToggle = document.querySelector('.menu');
-            menuToggle.classList.toggle('active');
-            menu.classList.toggle('active');
+        // ==========================================
+        // AOS (Animate On Scroll) INITIALIZATION
+        // ==========================================
+        function initAOS() {
+            AOS.init(CONFIG.aos);
         }
+
+        // ==========================================
+        // TYPEWRITER EFFECT
+        // ==========================================
+        function initTypewriter() {
+            const typewriterElement = document.getElementById('typewriter');
+            if (!typewriterElement) return;
+
+            const typewriter = new Typewriter(typewriterElement, {
+                loop: CONFIG.typewriter.loop,
+                delay: CONFIG.typewriter.delay
+            });
+
+            typewriter
+                .typeString(CONFIG.typewriter.strings[0])
+                .pauseFor(CONFIG.typewriter.pauseFor)
+                .deleteAll()
+                .start();
+        }
+
+        // ==========================================
+        // THEME TOGGLE
+        // ==========================================
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const currentTheme = html.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            // Update HTML attribute
+            html.setAttribute('data-bs-theme', newTheme);
+
+            // Update icon
+            icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+            // Persist to localStorage
+            localStorage.setItem('theme', newTheme);
+
+            // Dispatch custom event
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+            document.getElementById('theme-icon').className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // ==========================================
+        // SCROLL BEHAVIOR - Sticky Header
+        // ==========================================
+        function initScrollBehavior() {
+            const nav = document.querySelector('.header-nav');
+            let ticking = false;
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        if (window.scrollY > 50) {
+                            nav.classList.add('scrolled');
+                        } else {
+                            nav.classList.remove('scrolled');
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        }
+
+        // ==========================================
+        // UPDATE CURRENT YEAR
+        // ==========================================
+        function initCurrentYear() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        }
+
+        // ==========================================
+        // BOOTSTRAP TOOLTIPS
+        // ==========================================
+        function initTooltips() {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        }
+
+        // ==========================================
+        // ANALYTICS / TRACKING (Optional)
+        // ==========================================
+        document.querySelectorAll('[data-action]').forEach(el => {
+            el.addEventListener('click', function() {
+                const action = this.getAttribute('data-action');
+                console.log('Action tracked:', action);
+                // Integrate with analytics service here (GA, Mixpanel, etc.)
+            });
+        });
     </script>
 </body>
 </html>
