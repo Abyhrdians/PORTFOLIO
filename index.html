@@ -1,465 +1,576 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aby Herdiansyah - Informatics Engineering Specialist | Full-Stack Developer | IoT & Data Analytics Expert">
-    <meta name="keywords" content="web developer, full-stack, portfolio, informatics engineer, laravel, react">
+    <meta name="description" content="Aby Herdiansyah - Fresh Graduate Informatics Engineering | Full-Stack Developer | IoT & Data Analytics">
     <meta name="author" content="Aby Herdiansyah">
-    <meta name="theme-color" content="#0d6efd">
-    <meta property="og:title" content="Aby Herdiansyah | Portfolio">
-    <meta property="og:description" content="Informatics Engineering Specialist with expertise in web systems and data-driven insights">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://abyherdians.com">
-    
-    <title>Aby Herdiansyah | PortoFolio</title>
-    
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Aby Herdiansyah | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%230d6efd'>A</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
 </head>
 <body>
-    <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar navbar-expand-lg fixed-top py-3 header-nav" data-component="navbar" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <!-- Brand -->
-            <a class="navbar-brand fw-bold" href="#" data-target="brand" aria-label="Aby Herdiansyah Portfolio Home">
-                ABY<span class="text-primary" aria-hidden="true">.</span>
-            </a>
-            
-            <!-- Header Controls -->
-            <div class="d-flex align-items-center order-lg-last ms-2 gap-2">
-                <!-- Theme Toggle Button -->
-                <button class="btn btn-link nav-link px-2" 
-                        id="bd-theme" 
-                        type="button" 
-                        aria-label="Toggle dark/light theme"
-                        data-bs-toggle="tooltip" 
-                        title="Toggle theme"
-                        onclick="toggleTheme()">
-                    <i class="fas fa-sun" id="theme-icon" aria-hidden="true"></i>
+    <!-- ANIMATED CANVAS BACKGROUND -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">ABY<span class="dot">.</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
-
-                <!-- Mobile Menu Toggle -->
-                <button class="navbar-toggler border-0" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" 
-                        aria-expanded="false" 
-                        aria-label="Toggle navigation menu">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
                 </button>
-            </div>
-
-            <!-- Navigation Menu -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fw-semibold" role="menubar">
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="#home" data-nav-link role="menuitem">Home</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="#about" data-nav-link role="menuitem">About</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="#exp" data-nav-link role="menuitem">Experience</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a class="nav-link" href="#portfolio" data-nav-link role="menuitem">Projects</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a class="nav-link btn btn-primary btn-sm ms-lg-3 text-white px-3 mt-2 mt-lg-0 shadow-sm" 
-                           href="#footer" 
-                           data-nav-link 
-                           role="menuitem">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- MAIN CONTENT -->
-    <main id="main-content">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    Available for Opportunity
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm<br>
+                    <span class="typewriter-wrap">
+                        <span id="typewriter"></span><span class="cursor-blink">|</span>
+                    </span>
+                </h1>
+                <h2 class="hero-subtitle">Fresh Graduate Informatics Engineering</h2>
+                <p class="hero-desc">
+                    Informatics Engineering graduate with <strong>GPA 3.65</strong> — specializing in high-performance web systems, IoT, and data-driven insights. Proven track record leading Agile teams and optimizing system efficiency.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3.65</span>
+                        <span class="stat-label">GPA</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Exp.</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                </div>
+                <div class="hero-btns">
+                    <a href="https://drive.google.com/file/d/15VE4T3CrHRLm0yJRA30bFUtYaCPEOtCm/view?usp=drive_link"
+                       class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="https://www.linkedin.com/in/aby-herdiansyah/"
+                       class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
 
-        <!-- HERO SECTION -->
-        <section id="home" class="min-vh-100 d-flex align-items-center pt-5 hero-bg" data-section="hero" role="region" aria-labelledby="hero-heading">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
-                        <!-- Status Badge -->
-                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3" 
-                              data-component="status-badge">
-                            <i class="fas fa-circle fa-xs me-2 animate-pulse" aria-hidden="true"></i>
-                            <span>Available for Opportunity</span>
-                        </span>
+            <div class="hero-visual" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
+                <div class="avatar-ring">
+                    <div class="avatar-inner">
+                        <span class="avatar-initials">AH</span>
+                    </div>
+                    <div class="orbit orbit-1">
+                        <div class="orbit-dot"><i class="fab fa-laravel"></i></div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div class="orbit-dot"><i class="fas fa-database"></i></div>
+                    </div>
+                    <div class="orbit orbit-3">
+                        <div class="orbit-dot"><i class="fas fa-microchip"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                        <!-- Main Heading -->
-                        <h1 class="display-3 fw-bolder mb-2" id="hero-heading">
-                            I'm <span id="typewriter" class="name-animation" data-component="typewriter" role="status" aria-live="polite"></span>
-                        </h1>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
 
-                        <!-- Job Title -->
-                        <h2 class="h3 text-secondary mb-4">Fresh Graduate Informatics Engineering</h2>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Who I Am</span>
+                <h2 class="section-title">About <span class="accent">Me</span></h2>
+            </div>
 
-                        <!-- Description -->
-                        <p class="lead text-body-secondary mb-5 pe-lg-5">
-                            Informatics Engineering graduate <strong>(GPA 3.65)</strong> with a focus on high-performance web systems and data-driven insights. Proven record in leading Agile teams and optimizing system efficiency.
-                        </p>
+            <div class="about-grid">
+                <div class="about-text" data-aos="fade-right" data-aos-duration="900">
+                    <p class="about-lead">
+                        A passionate <strong>Informatics Engineering graduate</strong> from Indonesia, focused on
+                        building impactful digital solutions that bridge technology and business value.
+                    </p>
+                    <p>I specialize in full-stack web development (Laravel, PHP, MySQL), IoT systems integration, and
+                        data analytics. I bring hands-on experience leading Agile development teams and delivering
+                        projects under pressure.</p>
+                    <p>Currently contributing at <strong>PT Bank Rakyat Indonesia</strong> in the Retail Funding
+                        Department, handling critical data processing pipelines with 80%+ accuracy standards.</p>
 
-                        <!-- CTA Buttons -->
-                        <div class="d-flex gap-3 flex-wrap" data-component="cta-buttons">
-                           <a href="https://drive.google.com/file/d/15VE4T3CrHRLm0yJRA30bFUtYaCPEOtCm/view?usp=drive_link" 
-                               class="btn btn-outline-primary btn-lg px-4 fw-bold"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               data-action="Download-resume">
-                                <i class="fas fa-download me-2" aria-hidden="true"></i>Download Resume 
-                            </a>
-                            <a href="https://www.linkedin.com/in/aby-herdiansyah/" 
-                               class="btn btn-outline-primary btn-lg px-4 fw-bold"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               data-action="visit-linkedin">
-                                <i class="fab fa-linkedin me-2" aria-hidden="true"></i>LinkedIn
-                            </a>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div><strong>Education</strong><span>Informatics Engineering</span></div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div><strong>Location</strong><span>Indonesia</span></div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div><strong>Email</strong><span>Abyherdiansyah24@gmail.com</span></div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div><strong>Status</strong><span class="status-open">Open to Work</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-section" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+                    <h3 class="skills-title">Technical Skills</h3>
+                    <div class="skill-bar-list">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Laravel / PHP</span><span>85%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>MySQL / Database</span><span>80%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>JavaScript / HTML / CSS</span><span>78%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>IoT Systems</span><span>75%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Data Analytics / Looker</span><span>70%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Git / CI/CD</span><span>80%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+                        </div>
+                    </div>
+                    <div class="tech-badges">
+                        <span class="tech-badge"><i class="fab fa-laravel"></i> Laravel</span>
+                        <span class="tech-badge"><i class="fas fa-leaf"></i> MySQL</span>
+                        <span class="tech-badge"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-badge"><i class="fab fa-git-alt"></i> Git</span>
+                        <span class="tech-badge"><i class="fas fa-microchip"></i> IoT</span>
+                        <span class="tech-badge"><i class="fas fa-chart-line"></i> Analytics</span>
+                        <span class="tech-badge"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section section-alt">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Career Path</span>
+                <h2 class="section-title">Professional <span class="accent">Journey</span></h2>
+            </div>
+
+            <div class="timeline">
+                <!-- BRI -->
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="800">
+                    <div class="timeline-dot"><i class="fas fa-building-columns"></i></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-category">Banking &amp; Finance</span>
+                                <h3 class="timeline-role">Retail Funding Department</h3>
+                                <p class="timeline-company">
+                                    <i class="fas fa-building"></i>
+                                    PT Bank Rakyat Indonesia (Persero) Tbk.
+                                </p>
+                            </div>
+                            <div class="timeline-meta">
+                                <span class="timeline-date">
+                                    <i class="fas fa-calendar-alt"></i> Nov 2025 – Present
+                                </span>
+                                <span class="badge-active">Active</span>
+                            </div>
+                        </div>
+                        <ul class="timeline-list">
+                            <li><i class="fas fa-check-circle"></i> Optimized customer data processing with an <strong>80% completion rate</strong>.</li>
+                            <li><i class="fas fa-check-circle"></i> Ensuring high data accuracy and cross-departmental coordination.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Data Processing</span><span>Finance</span><span>Banking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Radar Telekomunikasi -->
+                <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                    <div class="timeline-dot"><i class="fas fa-code"></i></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-category">Telecommunication</span>
+                                <h3 class="timeline-role">Lead Web Developer <small>(Agile Team)</small></h3>
+                                <p class="timeline-company">
+                                    <i class="fas fa-building"></i>
+                                    PT Radar Telekomunikasi Indonesia
+                                </p>
+                            </div>
+                            <div class="timeline-meta">
+                                <span class="timeline-date">
+                                    <i class="fas fa-calendar-alt"></i> May – Aug 2025
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="timeline-list">
+                            <li><i class="fas fa-check-circle"></i> Developed web applications leading an Agile team — <strong>80% efficiency increase</strong>.</li>
+                            <li><i class="fas fa-check-circle"></i> Accelerated development speed by <strong>90%</strong> through Git &amp; CI/CD pipelines.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Laravel</span><span>Agile</span><span>Git</span><span>CI/CD</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- EXPERIENCE SECTION -->
-        <section id="exp" class="py-5 section-bg" data-section="experience" role="region" aria-labelledby="exp-heading">
-            <div class="container py-5">
-                <!-- Section Header -->
-                <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="800">
-                    <h2 class="fw-bold display-5" id="exp-heading">Professional Journey</h2>
-                    <div class="mx-auto bg-primary rounded" style="width: 60px; height: 4px;" aria-hidden="true"></div>
-                </div>
-                
-                <!-- Experience Cards -->
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-
-                        <!-- Card 1: BRI -->
-                        <article class="card border-0 mb-4 rounded-4 shadow-sm timeline-card" 
-                                 data-aos="fade-up" 
-                                 data-aos-duration="800"
-                                 data-experience-card="1">
-                            <div class="card-body p-4">
-                                <div class="d-md-flex justify-content-between align-items-start mb-3 gap-3">
-                                    <div>
-                                        <span class="text-primary fw-bold small text-uppercase" data-badge="category">Banking & Finance</span>
-                                        <h3 class="fw-bold h4 mt-2 mb-1">Retail Funding Department</h3>
-                                        <p class="text-secondary mb-0">PT Bank Rakyat Indonesia (Persero) Tbk.</p>
-                                    </div>
-                                    <span class="badge bg-body-tertiary text-body border p-2 px-3 mt-2 mt-md-0 text-nowrap" data-badge="date">
-                                        Nov 2025 - Present
-                                    </span>
-                                </div>
-                                <ul class="text-body-secondary list-unstyled" data-component="achievements">
-                                    <li class="mb-2"><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Optimized customer data processing with an 80% completion rate.</li>
-                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Ensuring high data accuracy and cross-departmental coordination.</li>
-                                </ul>
-                            </div>
-                        </article>
-
-                        <!-- Card 2: Radar -->
-                        <article class="card border-0 mb-4 rounded-4 shadow-sm timeline-card" 
-                                 data-aos="fade-up" 
-                                 data-aos-delay="100"
-                                 data-aos-duration="800"
-                                 data-experience-card="2">
-                            <div class="card-body p-4">
-                                <div class="d-md-flex justify-content-between align-items-start mb-3 gap-3">
-                                    <div>
-                                        <span class="text-primary fw-bold small text-uppercase" data-badge="category">Telecommunication</span>
-                                        <h3 class="fw-bold h4 mt-2 mb-1">Lead Web Developer <small class="text-secondary">(Agile Team)</small></h3>
-                                        <p class="text-secondary mb-0">PT Radar Telekomunikasi Indonesia</p>
-                                    </div>
-                                    <span class="badge bg-body-tertiary text-body border p-2 px-3 mt-2 mt-md-0 text-nowrap" data-badge="date">
-                                        May - Aug 2025
-                                    </span>
-                                </div>
-                                <ul class="text-body-secondary list-unstyled" data-component="achievements">
-                                    <li class="mb-2"><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Developed web applications by leading an Agile team (80% efficiency increase).</li>
-                                    <li><i class="fas fa-check text-primary me-2" aria-hidden="true"></i>Accelerated development speed by 90% through Git version control & CI/CD.</li>
-                                </ul>
-                            </div>
-                        </article>
-
-                    </div>
-                </div>
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">What I Built</span>
+                <h2 class="section-title">Technical <span class="accent">Projects</span></h2>
             </div>
-        </section>
 
-        <!-- PORTFOLIO SECTION -->
-        <section id="portfolio" class="py-5" data-section="portfolio" role="region" aria-labelledby="portfolio-heading">
-            <div class="container py-5">
-                <!-- Section Header -->
-                <h2 class="fw-bold display-5 text-center mb-5" id="portfolio-heading" data-aos="fade-up" data-aos-duration="800">
-                    Technical Projects
-                </h2>
-
-                <!-- Projects Grid -->
-                <div class="row g-4" data-component="projects-grid">
-
-                    <!-- Project Card 1: Smart Greenhouse -->
-                    <div class="col-md-6" data-aos="zoom-in" data-aos-duration="800">
-                        <article class="card h-100 border-0 rounded-4 overflow-hidden shadow-sm project-card" 
-                                 data-project-card="1"
-                                 data-project-category="iot">
-                            <!-- Project Image -->
-                            <figure class="project-img-container m-0">
-                                <img src="aset/SGH.jpeg" 
-                                     class="card-img-top" 
-                                     alt="Smart Greenhouse System - IoT monitoring interface"
-                                     loading="lazy"
-                                     decoding="async"
-                                     data-component="project-image">
-                            </figure>
-
-                            <!-- Project Info -->
-                            <div class="card-body p-4 d-flex flex-column">
-                                <span class="text-primary fw-bold small text-uppercase" data-badge="category">IoT & Web</span>
-                                <h3 class="h4 fw-bold mt-2 mb-3">Smart Greenhouse System</h3>
-                                <p class="text-secondary small flex-grow-1">
-                                    Laravel-based monitoring & controlling system for hydroponics using automated sensors.
-                                </p>
-                                <div class="mt-3" data-component="tech-stack">
-                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">Laravel</span>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">IoT</span>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary small">MySQL</span>
-                                </div>
-                            </div>
-                        </article>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card glass-card" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="project-img">
+                        <img src="aset/SGH.jpeg" alt="Smart Greenhouse System" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-category"><i class="fas fa-microchip"></i> IoT &amp; Web</span>
+                        </div>
                     </div>
-
-                    <!-- Project Card 2: MSIB Analytics -->
-                    <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
-                        <article class="card h-100 border-0 rounded-4 overflow-hidden shadow-sm project-card"
-                                 data-project-card="2"
-                                 data-project-category="analytics">
-                            <!-- Project Image -->
-                            <figure class="project-img-container m-0">
-                                <img src="aset/msib.jpeg" 
-                                     class="card-img-top" 
-                                     alt="MSIB Data Analytics - Looker Studio dashboard"
-                                     loading="lazy"
-                                     decoding="async"
-                                     data-component="project-image">
-                            </figure>
-
-                            <!-- Project Info -->
-                            <div class="card-body p-4 d-flex flex-column">
-                                <span class="text-primary fw-bold small text-uppercase" data-badge="category">Data Analytics</span>
-                                <h3 class="h4 fw-bold mt-2 mb-3">MSIB Batch 5 Analytics</h3>
-                                <p class="text-secondary small flex-grow-1">
-                                    Processing raw data into Looker Studio dashboards to drive business decisions.
-                                </p>
-                                <div class="mt-3" data-component="tech-stack">
-                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">Google Analytics</span>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary small me-2">Looker Studio</span>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary small">Data Processing</span>
-                                </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Smart Greenhouse System</h3>
+                        <p class="project-desc">Laravel-based IoT monitoring &amp; control system for hydroponics using automated sensors with real-time dashboard.</p>
+                        <div class="project-stack">
+                            <span>Laravel</span><span>IoT</span><span>MySQL</span><span>Arduino</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="https://github.com/Abyhrdians" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
                             </div>
-                        </article>
+                        </div>
                     </div>
+                </article>
 
-                </div>
+                <!-- Project 2 -->
+                <article class="project-card glass-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="project-img">
+                        <img src="aset/msib.jpeg" alt="MSIB Data Analytics" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-category"><i class="fas fa-chart-bar"></i> Data Analytics</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">MSIB Batch 5 Analytics</h3>
+                        <p class="project-desc">Processing raw data into interactive Looker Studio dashboards to drive strategic business decisions at scale.</p>
+                        <div class="project-stack">
+                            <span>Google Analytics</span><span>Looker Studio</span><span>BigQuery</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="https://github.com/Abyhrdians" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 / More -->
+                <article class="project-card glass-card project-wip" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="project-wip-inner">
+                        <div class="wip-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>More Projects</h3>
+                        <p>More exciting projects are being crafted. Stay tuned for updates!</p>
+                        <a href="https://github.com/Abyhrdians" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                            <i class="fab fa-github"></i> View GitHub
+                        </a>
+                    </div>
+                </article>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- FOOTER / CONTACT SECTION -->
-        <footer id="footer" class="py-5 section-bg" data-section="footer" role="contentinfo">
-            <div class="container text-center">
-                <h2 class="fw-bold mb-4" data-aos="fade-up" data-aos-duration="800">Let's Connect</h2>
-
-                <!-- Social Links -->
-                <nav class="d-flex justify-content-center gap-4 fs-3 mb-5" aria-label="Social media links" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                    <a href="https://github.com/Abyhrdians" 
-                       class="text-body hover-primary" 
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Visit GitHub profile"
-                       data-social="github">
-                        <i class="fab fa-github" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/aby-herdiansyah/" 
-                       class="text-body hover-primary"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Visit LinkedIn profile"
-                       data-social="linkedin">
-                        <i class="fab fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                    <a href="https:// www.gmail.com/in/Abyherdiansyah24@gmail.com" 
-                       class="text-body hover-primary"
-                       aria-label="Send email"
-                       data-social="email">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                    </a>
-                </nav>
-
-                <!-- Copyright -->
-                <p class="text-secondary small mb-0">
-                    &copy; <span id="current-year">2026</span> Aby Herdiansyah. Built with Modern Tech.
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-inner" data-aos="fade-up">
+                <div class="footer-brand">ABY<span class="dot">.</span></div>
+                <h2 class="footer-title">Let's Build Something <span class="accent">Together</span></h2>
+                <p class="footer-desc">
+                    Open to full-time roles, freelance projects, or interesting collaborations.<br>
+                    Let's create impactful digital experiences.
                 </p>
+                <div class="footer-btns">
+                    <a href="mailto:Abyherdiansyah24@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Email
+                    </a>
+                    <a href="https://drive.google.com/file/d/15VE4T3CrHRLm0yJRA30bFUtYaCPEOtCm/view?usp=drive_link"
+                       class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-alt"></i> My Resume
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Abyhrdians" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aby-herdiansyah/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:Abyherdiansyah24@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; <span id="year"></span> Aby Herdiansyah &mdash; Crafted with <i class="fas fa-heart" style="color:#f72585"></i> &amp; Code.</p>
+                </div>
             </div>
-        </footer>
-
-    </main>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // ==========================================
-        // CONFIGURATION
-        // ==========================================
-        const CONFIG = {
-            aos: {
-                duration: 800,
-                once: true,
-                offset: 100
-            },
-            typewriter: {
-                loop: true,
-                delay: 75,
-                strings: ['Aby Herdiansyah'],
-                pauseFor: 2500,
-                deleteSpeed: 50
+    // ============================
+    // CANVAS ANIMATED BACKGROUND
+    // ============================
+    (function () {
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [], mouse = { x: null, y: null }, dark = true;
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.2 + 0.4;
+                this.vx = (Math.random() - 0.5) * 0.55;
+                this.vy = (Math.random() - 0.5) * 0.55;
+                this.op = Math.random() * 0.55 + 0.1;
+                this.c = Math.random() > 0.5 ? '99,102,241' : '16,185,129';
             }
-        };
-
-        // ==========================================
-        // INITIALIZATION
-        // ==========================================
-        document.addEventListener('DOMContentLoaded', function() {
-            initAOS();
-            initTypewriter();
-            initTheme();
-            initScrollBehavior();
-            initCurrentYear();
-            initTooltips();
-        });
-
-        // ==========================================
-        // AOS (Animate On Scroll) INITIALIZATION
-        // ==========================================
-        function initAOS() {
-            AOS.init(CONFIG.aos);
-        }
-
-        // ==========================================
-        // TYPEWRITER EFFECT
-        // ==========================================
-        function initTypewriter() {
-            const typewriterElement = document.getElementById('typewriter');
-            if (!typewriterElement) return;
-
-            const typewriter = new Typewriter(typewriterElement, {
-                loop: CONFIG.typewriter.loop,
-                delay: CONFIG.typewriter.delay
-            });
-
-            typewriter
-                .typeString(CONFIG.typewriter.strings[0])
-                .pauseFor(CONFIG.typewriter.pauseFor)
-                .deleteAll()
-                .start();
-        }
-
-        // ==========================================
-        // THEME TOGGLE
-        // ==========================================
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            const currentTheme = html.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            // Update HTML attribute
-            html.setAttribute('data-bs-theme', newTheme);
-
-            // Update icon
-            icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-
-            // Persist to localStorage
-            localStorage.setItem('theme', newTheme);
-
-            // Dispatch custom event
-            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-bs-theme', savedTheme);
-            document.getElementById('theme-icon').className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-
-        // ==========================================
-        // SCROLL BEHAVIOR - Sticky Header
-        // ==========================================
-        function initScrollBehavior() {
-            const nav = document.querySelector('.header-nav');
-            let ticking = false;
-
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        if (window.scrollY > 50) {
-                            nav.classList.add('scrolled');
-                        } else {
-                            nav.classList.remove('scrolled');
-                        }
-                        ticking = false;
-                    });
-                    ticking = true;
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (mouse.x) {
+                    const dx = mouse.x - this.x, dy = mouse.y - this.y;
+                    const d = Math.sqrt(dx * dx + dy * dy);
+                    if (d < 110) { this.x -= dx * 0.025; this.y -= dy * 0.025; }
                 }
-            });
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.op;
+                ctx.fillStyle = `rgba(${this.c},1)`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
         }
 
-        // ==========================================
-        // UPDATE CURRENT YEAR
-        // ==========================================
-        function initCurrentYear() {
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+        function init() {
+            particles = [];
+            const n = Math.min(Math.floor(window.innerWidth / 7), 150);
+            for (let i = 0; i < n; i++) particles.push(new Particle());
         }
 
-        // ==========================================
-        // BOOTSTRAP TOOLTIPS
-        // ==========================================
-        function initTooltips() {
-            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
+        function connect() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const d = Math.sqrt(dx * dx + dy * dy);
+                    if (d < 120) {
+                        ctx.save();
+                        ctx.globalAlpha = (1 - d / 120) * 0.22;
+                        ctx.strokeStyle = dark ? 'rgba(99,102,241,.9)' : 'rgba(79,70,229,.5)';
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+                }
+            }
         }
 
-        // ==========================================
-        // ANALYTICS / TRACKING (Optional)
-        // ==========================================
-        document.querySelectorAll('[data-action]').forEach(el => {
-            el.addEventListener('click', function() {
-                const action = this.getAttribute('data-action');
-                console.log('Action tracked:', action);
-                // Integrate with analytics service here (GA, Mixpanel, etc.)
-            });
+        function loop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            connect();
+            requestAnimationFrame(loop);
+        }
+
+        window.addEventListener('resize', () => { resize(); init(); });
+        window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+        window.setCanvasDark = v => dark = v;
+
+        resize(); init(); loop();
+    })();
+
+    // ============================
+    // CURSOR GLOW (smooth follow)
+    // ============================
+    const glow = document.getElementById('cursor-glow');
+    let gx = 0, gy = 0, tx = 0, ty = 0;
+    document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    (function animGlow() {
+        gx += (tx - gx) * 0.09;
+        gy += (ty - gy) * 0.09;
+        glow.style.transform = `translate(${gx - 200}px,${gy - 200}px)`;
+        requestAnimationFrame(animGlow);
+    })();
+
+    // ============================
+    // TYPEWRITER EFFECT
+    // ============================
+    (function () {
+        const el = document.getElementById('typewriter');
+        const strs = ['Aby Herdiansyah', 'Full-Stack Developer', 'IoT Engineer', 'Data Enthusiast'];
+        let si = 0, ci = 0, deleting = false;
+        function type() {
+            const s = strs[si];
+            if (!deleting) {
+                el.textContent = s.substring(0, ci + 1);
+                ci++;
+                if (ci === s.length) { deleting = true; setTimeout(type, 2000); return; }
+                setTimeout(type, 80);
+            } else {
+                el.textContent = s.substring(0, ci - 1);
+                ci--;
+                if (ci === 0) { deleting = false; si = (si + 1) % strs.length; setTimeout(type, 400); return; }
+                setTimeout(type, 45);
+            }
+        }
+        setTimeout(type, 700);
+    })();
+
+    // ============================
+    // THEME TOGGLE
+    // ============================
+    const themeBtn = document.getElementById('theme-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    let isDark = true;
+
+    function applyTheme(dark) {
+        isDark = dark;
+        document.documentElement.className = dark ? 'dark' : 'light';
+        themeIcon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+        if (window.setCanvasDark) window.setCanvasDark(dark);
+    }
+
+    themeBtn.addEventListener('click', () => applyTheme(!isDark));
+    applyTheme((localStorage.getItem('theme') || 'dark') === 'dark');
+
+    // ============================
+    // NAVBAR SCROLL + ACTIVE LINK
+    // ============================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+        const sections = document.querySelectorAll('section[id], footer[id]');
+        const links = document.querySelectorAll('.nav-link');
+        let current = '';
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.getAttribute('id'); });
+        links.forEach(l => {
+            l.classList.remove('active');
+            if (l.getAttribute('href') === '#' + current) l.classList.add('active');
         });
+    });
+
+    // ============================
+    // HAMBURGER MENU
+    // ============================
+    const ham = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    ham.addEventListener('click', () => {
+        ham.classList.toggle('open');
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        ham.classList.remove('open');
+        navLinks.classList.remove('open');
+    }));
+
+    // ============================
+    // SKILL BAR ANIMATION
+    // ============================
+    const skillObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.querySelectorAll('.skill-bar-fill').forEach(b => {
+                    b.style.width = b.getAttribute('data-width') + '%';
+                });
+                skillObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const skillList = document.querySelector('.skill-bar-list');
+    if (skillList) skillObs.observe(skillList);
+
+    // ============================
+    // AOS + YEAR
+    // ============================
+    AOS.init({ duration: 800, once: true, offset: 80 });
+    document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
