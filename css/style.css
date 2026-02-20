@@ -44,13 +44,16 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
+/* Base bg on html so canvas looks correct in all browsers */
+html { background-color: var(--bg); transition: background-color .4s; }
+
 body {
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    background-color: var(--bg);
+    background-color: transparent;
     color: var(--text);
     line-height: 1.7;
     overflow-x: hidden;
-    transition: background-color .4s, color .4s;
+    transition: color .4s;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -60,7 +63,36 @@ strong { color: var(--text); }
 #bg-canvas {
     position: fixed; inset: 0;
     width: 100%; height: 100%;
-    z-index: 0; pointer-events: none; opacity: .7;
+    z-index: 0; pointer-events: none; opacity: .85;
+}
+
+/* FIXED GRID OVERLAY */
+.bg-grid {
+    position: fixed; inset: 0;
+    z-index: 0; pointer-events: none;
+    background-image:
+        linear-gradient(rgba(99,102,241,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* FIXED GRADIENT SWEEP */
+.bg-sweep {
+    position: fixed; inset: 0;
+    z-index: 0; pointer-events: none;
+    background:
+        radial-gradient(ellipse 60% 40% at 15% 20%, rgba(99,102,241,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 85% 75%, rgba(16,185,129,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(247,37,133,.06) 0%, transparent 60%);
+    animation: sweepShift 20s ease-in-out infinite alternate;
+}
+@keyframes sweepShift {
+    0%   { opacity: 1;   filter: hue-rotate(0deg);   }
+    33%  { opacity: .85; filter: hue-rotate(30deg);  }
+    66%  { opacity: .9;  filter: hue-rotate(-20deg); }
+    100% { opacity: 1;   filter: hue-rotate(15deg);  }
 }
 
 /* CURSOR GLOW */
@@ -277,8 +309,93 @@ strong { color: var(--text); }
    SECTIONS
    ============================================= */
 .section { padding: 110px 0; position: relative; z-index: 2; }
-.section-alt { background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%); }
-.light .section-alt { background: linear-gradient(180deg, var(--bg-3) 0%, var(--bg) 100%); }
+
+/* Section alt: semi-transparent so canvas particles remain visible */
+.section-alt {
+    background: linear-gradient(180deg,
+        rgba(15,15,30,0.82) 0%,
+        rgba(10,10,18,0.75) 100%);
+    backdrop-filter: blur(0px);
+}
+.light .section-alt {
+    background: linear-gradient(180deg,
+        rgba(232,238,255,0.88) 0%,
+        rgba(248,250,255,0.82) 100%);
+}
+
+/* Animated gradient orb – About section */
+#about::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    top: 5%; left: -150px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 65%);
+    border-radius: 50%;
+    animation: orbFloat1 18s ease-in-out infinite alternate;
+    pointer-events: none; z-index: 0;
+}
+#about::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    bottom: 0; right: -100px;
+    background: radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 65%);
+    border-radius: 50%;
+    animation: orbFloat2 22s ease-in-out infinite alternate;
+    pointer-events: none; z-index: 0;
+}
+
+/* Animated gradient orb – Experience section */
+#experience::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    top: -100px; right: -200px;
+    background: radial-gradient(ellipse, rgba(247,37,133,0.06) 0%, transparent 60%);
+    border-radius: 50%;
+    animation: orbFloat2 25s ease-in-out infinite alternate;
+    pointer-events: none; z-index: 0;
+}
+#experience::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    bottom: -50px; left: -100px;
+    background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 65%);
+    border-radius: 50%;
+    animation: orbFloat1 20s ease-in-out infinite alternate;
+    pointer-events: none; z-index: 0;
+}
+
+/* Animated gradient orb – Projects section */
+#projects::before {
+    content: '';
+    position: absolute;
+    width: 800px; height: 400px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(16,185,129,0.06) 0%, transparent 60%);
+    border-radius: 50%;
+    animation: orbPulse 15s ease-in-out infinite;
+    pointer-events: none; z-index: 0;
+}
+
+@keyframes orbFloat1 {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(40px, -60px) scale(1.1); }
+    66%  { transform: translate(-30px, 40px) scale(0.95); }
+    100% { transform: translate(60px, 80px) scale(1.05); }
+}
+@keyframes orbFloat2 {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(-50px, 30px) scale(1.08); }
+    66%  { transform: translate(40px, -50px) scale(1.02); }
+    100% { transform: translate(-60px, -80px) scale(0.95); }
+}
+@keyframes orbPulse {
+    0%,100% { opacity: .5; transform: translate(-50%,-50%) scale(1); }
+    50%     { opacity: 1; transform: translate(-50%,-50%) scale(1.15); }
+}
 
 .section-header { text-align: center; margin-bottom: 64px; }
 .section-tag {
@@ -446,7 +563,11 @@ strong { color: var(--text); }
 /* =============================================
    FOOTER
    ============================================= */
-.footer { position: relative; z-index: 2; padding: 100px 0 60px; overflow: hidden; }
+/* Footer also semi-transparent */
+.footer {
+    position: relative; z-index: 2; padding: 100px 0 60px; overflow: hidden;
+    background: linear-gradient(180deg, transparent 0%, rgba(10,10,18,0.92) 30%);
+}
 .footer::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
     background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
