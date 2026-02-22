@@ -6,10 +6,31 @@
     <meta name="description" content="Aby Herdiansyah - Fresh Graduate Informatics Engineering | Full-Stack Developer | IoT & Data Analytics">
     <meta name="author" content="Aby Herdiansyah">
     <title>Aby Herdiansyah | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Preconnect untuk percepat koneksi CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Google Fonts — non-blocking via preload -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- Font Awesome — non-blocking via preload -->
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+    </noscript>
+
+    <!-- Stylesheet utama -->
     <link rel="stylesheet" href="css/style.css">
+
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
 </head>
 <body>
@@ -47,7 +68,7 @@
     <!-- HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-container">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-content" data-reveal data-delay="0">
                 <div class="status-badge">
                     <span class="pulse-dot"></span>
                     Available for Opportunity
@@ -62,19 +83,19 @@
                 <p class="hero-desc">
                     Informatics Engineering graduate with <strong>GPA 3.65</strong> — specializing in high-performance web systems, IoT, and data-driven insights. Proven track record leading Agile teams and optimizing system efficiency.
                 </p>
-                <div class="hero-stats">
+                <div class="hero-stats" data-stagger>
                     <div class="stat-item">
-                        <span class="stat-number">3.65</span>
+                        <span class="stat-number" data-counter="3.65" data-suffix="">0</span>
                         <span class="stat-label">GPA</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <span class="stat-number">2+</span>
+                        <span class="stat-number" data-counter="2" data-suffix="+">0</span>
                         <span class="stat-label">Years Exp.</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <span class="stat-number">4+</span>
+                        <span class="stat-number" data-counter="4" data-suffix="+">0</span>
                         <span class="stat-label">Projects</span>
                     </div>
                 </div>
@@ -90,7 +111,7 @@
                 </div>
             </div>
 
-            <div class="hero-visual" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
+            <div class="hero-visual" data-reveal="zoom" data-delay="200" id="hero-visual">
                 <div class="avatar-ring">
                     <div class="avatar-inner">
                         <span class="avatar-initials">AH</span>
@@ -117,13 +138,13 @@
     <!-- ABOUT SECTION -->
     <section id="about" class="section">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header" data-reveal>
                 <span class="section-tag">Who I Am</span>
                 <h2 class="section-title">About <span class="accent">Me</span></h2>
             </div>
 
             <div class="about-grid">
-                <div class="about-text" data-aos="fade-right" data-aos-duration="900">
+                <div class="about-text" data-reveal="left" data-delay="0">
                     <p class="about-lead">
                         A passionate <strong>Informatics Engineering graduate</strong> from Indonesia, focused on
                         building impactful digital solutions that bridge technology and business value.
@@ -134,7 +155,7 @@
                     <p>Currently contributing at <strong>PT Bank Rakyat Indonesia</strong> in the Retail Funding
                         Department, handling critical data processing pipelines with 80%+ accuracy standards.</p>
 
-                    <div class="info-grid">
+                    <div class="info-grid" data-stagger>
                         <div class="info-item">
                             <i class="fas fa-graduation-cap"></i>
                             <div><strong>Education</strong><span>Informatics Engineering</span></div>
@@ -154,7 +175,7 @@
                     </div>
                 </div>
 
-                <div class="skills-section" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+                <div class="skills-section" data-reveal="right" data-delay="100">
                     <h3 class="skills-title">Technical Skills</h3>
                     <div class="skill-bar-list">
                         <div class="skill-bar-item">
@@ -182,7 +203,7 @@
                             <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
                         </div>
                     </div>
-                    <div class="tech-badges">
+                    <div class="tech-badges" data-stagger>
                         <span class="tech-badge"><i class="fab fa-laravel"></i> Laravel</span>
                         <span class="tech-badge"><i class="fas fa-leaf"></i> MySQL</span>
                         <span class="tech-badge"><i class="fab fa-js"></i> JavaScript</span>
@@ -200,14 +221,14 @@
     <!-- EXPERIENCE SECTION -->
     <section id="experience" class="section section-alt">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header" data-reveal>
                 <span class="section-tag">Career Path</span>
                 <h2 class="section-title">Professional <span class="accent">Journey</span></h2>
             </div>
 
             <div class="timeline">
                 <!-- BRI -->
-                <div class="timeline-item" data-aos="fade-right" data-aos-duration="800">
+                <div class="timeline-item" data-reveal="left">
                     <div class="timeline-dot"><i class="fas fa-building-columns"></i></div>
                     <div class="timeline-card glass-card">
                         <div class="timeline-header">
@@ -237,7 +258,7 @@
                 </div>
 
                 <!-- Radar Telekomunikasi -->
-                <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                <div class="timeline-item timeline-item-right" data-reveal="right" data-delay="100">
                     <div class="timeline-dot"><i class="fas fa-code"></i></div>
                     <div class="timeline-card glass-card">
                         <div class="timeline-header">
@@ -264,6 +285,36 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Smart Greenhouse System — Uninus -->
+                <div class="timeline-item" data-reveal="left" data-delay="200">
+                    <div class="timeline-dot"><i class="fas fa-seedling"></i></div>
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-category">Academic Project</span>
+                                <h3 class="timeline-role">Full Stack Developer</h3>
+                                <p class="timeline-company">
+                                    <i class="fas fa-university"></i>
+                                    Universitas Islam Nusantara
+                                </p>
+                            </div>
+                            <div class="timeline-meta">
+                                <span class="timeline-date">
+                                    <i class="fas fa-calendar-alt"></i> Sep 2024 – Jan 2025
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="timeline-list">
+                            <li><i class="fas fa-check-circle"></i> Built a <strong>real-time IoT monitoring</strong> dashboard with high-accuracy sensor data for Smart Greenhouse System.</li>
+                            <li><i class="fas fa-check-circle"></i> Implemented <strong>automated watering &amp; nutrient</strong> control for hydroponic plants via Arduino integration.</li>
+                            <li><i class="fas fa-check-circle"></i> Delivered a full Laravel dashboard integrated with Arduino &amp; MySQL for end-to-end data pipeline.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Laravel</span><span>IoT</span><span>Arduino</span><span>MySQL</span><span>Real-time</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -271,14 +322,14 @@
     <!-- PROJECTS SECTION -->
     <section id="projects" class="section">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header" data-reveal>
                 <span class="section-tag">What I Built</span>
                 <h2 class="section-title">Technical <span class="accent">Projects</span></h2>
             </div>
 
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <article class="project-card glass-card" data-aos="zoom-in" data-aos-duration="800">
+                <article class="project-card glass-card" data-reveal="zoom">
                     <div class="project-img">
                         <img src="aset/SGH.jpeg" alt="Smart Greenhouse System" loading="lazy">
                         <div class="project-overlay">
@@ -302,7 +353,7 @@
                 </article>
 
                 <!-- Project 2 -->
-                <article class="project-card glass-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+                <article class="project-card glass-card" data-reveal="zoom" data-delay="100">
                     <div class="project-img">
                         <img src="aset/msib.jpeg" alt="MSIB Data Analytics" loading="lazy">
                         <div class="project-overlay">
@@ -326,7 +377,7 @@
                 </article>
 
                 <!-- Project 3 / More -->
-                <article class="project-card glass-card project-wip" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                <article class="project-card glass-card project-wip" data-reveal="zoom" data-delay="200">
                     <div class="project-wip-inner">
                         <div class="wip-icon"><i class="fas fa-rocket"></i></div>
                         <h3>More Projects</h3>
@@ -343,7 +394,7 @@
     <!-- CONTACT / FOOTER -->
     <footer id="contact" class="footer">
         <div class="container">
-            <div class="footer-inner" data-aos="fade-up">
+            <div class="footer-inner" data-reveal>
                 <div class="footer-brand">ABY<span class="dot">.</span></div>
                 <h2 class="footer-title">Let's Build Something <span class="accent">Together</span></h2>
                 <p class="footer-desc">
@@ -377,204 +428,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-    // ============================
-    // CANVAS ANIMATED BACKGROUND
-    // ============================
-    (function () {
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [], mouse = { x: null, y: null }, dark = true;
-
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2.2 + 0.4;
-                this.vx = (Math.random() - 0.5) * 0.55;
-                this.vy = (Math.random() - 0.5) * 0.55;
-                this.op = Math.random() * 0.55 + 0.1;
-                this.c = Math.random() > 0.5 ? '99,102,241' : '16,185,129';
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (mouse.x) {
-                    const dx = mouse.x - this.x, dy = mouse.y - this.y;
-                    const d = Math.sqrt(dx * dx + dy * dy);
-                    if (d < 110) { this.x -= dx * 0.025; this.y -= dy * 0.025; }
-                }
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-            draw() {
-                ctx.save();
-                ctx.globalAlpha = this.op;
-                ctx.fillStyle = `rgba(${this.c},1)`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        function init() {
-            particles = [];
-            const n = Math.min(Math.floor(window.innerWidth / 7), 150);
-            for (let i = 0; i < n; i++) particles.push(new Particle());
-        }
-
-        function connect() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const d = Math.sqrt(dx * dx + dy * dy);
-                    if (d < 120) {
-                        ctx.save();
-                        ctx.globalAlpha = (1 - d / 120) * 0.22;
-                        ctx.strokeStyle = dark ? 'rgba(99,102,241,.9)' : 'rgba(79,70,229,.5)';
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                        ctx.restore();
-                    }
-                }
-            }
-        }
-
-        function loop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            connect();
-            requestAnimationFrame(loop);
-        }
-
-        window.addEventListener('resize', () => { resize(); init(); });
-        window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
-        window.setCanvasDark = v => dark = v;
-
-        resize(); init(); loop();
-    })();
-
-    // ============================
-    // CURSOR GLOW (smooth follow)
-    // ============================
-    const glow = document.getElementById('cursor-glow');
-    let gx = 0, gy = 0, tx = 0, ty = 0;
-    document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
-    (function animGlow() {
-        gx += (tx - gx) * 0.09;
-        gy += (ty - gy) * 0.09;
-        glow.style.transform = `translate(${gx - 200}px,${gy - 200}px)`;
-        requestAnimationFrame(animGlow);
-    })();
-
-    // ============================
-    // TYPEWRITER EFFECT
-    // ============================
-    (function () {
-        const el = document.getElementById('typewriter');
-        const strs = ['Aby Herdiansyah', 'Full-Stack Developer', 'IoT Engineer', 'Data Enthusiast'];
-        let si = 0, ci = 0, deleting = false;
-        function type() {
-            const s = strs[si];
-            if (!deleting) {
-                el.textContent = s.substring(0, ci + 1);
-                ci++;
-                if (ci === s.length) { deleting = true; setTimeout(type, 2000); return; }
-                setTimeout(type, 80);
-            } else {
-                el.textContent = s.substring(0, ci - 1);
-                ci--;
-                if (ci === 0) { deleting = false; si = (si + 1) % strs.length; setTimeout(type, 400); return; }
-                setTimeout(type, 45);
-            }
-        }
-        setTimeout(type, 700);
-    })();
-
-    // ============================
-    // THEME TOGGLE
-    // ============================
-    const themeBtn = document.getElementById('theme-btn');
-    const themeIcon = document.getElementById('theme-icon');
-    let isDark = true;
-
-    function applyTheme(dark) {
-        isDark = dark;
-        document.documentElement.className = dark ? 'dark' : 'light';
-        themeIcon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
-        localStorage.setItem('theme', dark ? 'dark' : 'light');
-        if (window.setCanvasDark) window.setCanvasDark(dark);
-    }
-
-    themeBtn.addEventListener('click', () => applyTheme(!isDark));
-    applyTheme((localStorage.getItem('theme') || 'dark') === 'dark');
-
-    // ============================
-    // NAVBAR SCROLL + ACTIVE LINK
-    // ============================
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
-        const sections = document.querySelectorAll('section[id], footer[id]');
-        const links = document.querySelectorAll('.nav-link');
-        let current = '';
-        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.getAttribute('id'); });
-        links.forEach(l => {
-            l.classList.remove('active');
-            if (l.getAttribute('href') === '#' + current) l.classList.add('active');
-        });
-    });
-
-    // ============================
-    // HAMBURGER MENU
-    // ============================
-    const ham = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    ham.addEventListener('click', () => {
-        ham.classList.toggle('open');
-        navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        ham.classList.remove('open');
-        navLinks.classList.remove('open');
-    }));
-
-    // ============================
-    // SKILL BAR ANIMATION
-    // ============================
-    const skillObs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.querySelectorAll('.skill-bar-fill').forEach(b => {
-                    b.style.width = b.getAttribute('data-width') + '%';
-                });
-                skillObs.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    const skillList = document.querySelector('.skill-bar-list');
-    if (skillList) skillObs.observe(skillList);
-
-    // ============================
-    // AOS + YEAR
-    // ============================
-    AOS.init({ duration: 800, once: true, offset: 80 });
-    document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <!-- JS utama — defer agar tidak blokir render -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>

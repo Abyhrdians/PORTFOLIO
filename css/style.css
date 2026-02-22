@@ -645,6 +645,119 @@ strong { color: var(--text); }
 }
 
 /* =============================================
+   REVEAL ANIMATION — Enhanced (zero dependency)
+   ============================================= */
+
+/* --- BASE STATE (sembunyi sebelum masuk viewport) --- */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity  0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        filter   0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: blur(4px);
+    will-change: opacity, transform, filter;
+}
+
+/* Varian arah */
+[data-reveal="left"]  {
+    transform: translateX(-50px) translateY(10px);
+    filter: blur(3px);
+}
+[data-reveal="right"] {
+    transform: translateX(50px) translateY(10px);
+    filter: blur(3px);
+}
+[data-reveal="zoom"] {
+    transform: scale(0.88) translateY(20px);
+    filter: blur(6px);
+}
+[data-reveal="flip"] {
+    transform: perspective(600px) rotateX(20deg) translateY(30px);
+    filter: blur(4px);
+    transform-origin: top center;
+}
+[data-reveal="drop"] {
+    transform: translateY(-40px);
+    filter: blur(4px);
+}
+
+/* --- VISIBLE STATE (saat masuk viewport) --- */
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    filter: blur(0px);
+}
+
+/* --- STAGGER CHILDREN  (otomatis dari JS) --- */
+[data-stagger] > * {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+    filter: blur(3px);
+    transition:
+        opacity  0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        filter   0.45s ease;
+    will-change: opacity, transform;
+}
+[data-stagger].is-staggered > * {
+    opacity: 1;
+    transform: none;
+    filter: blur(0px);
+}
+
+/* --- SECTION TAG — garis tumbuh dari kiri --- */
+.section-tag {
+    position: relative;
+    overflow: hidden;
+}
+.section-tag::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(99,102,241,.1);
+    transform: translateX(-101%);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: inherit;
+}
+[data-reveal].is-visible .section-tag::after,
+.section-header.is-visible .section-tag::after {
+    transform: translateX(0);
+}
+
+/* --- SECTION TITLE — tiap kata slide up --- */
+.section-title .word {
+    display: inline-block;
+    overflow: hidden;
+}
+.section-title .word span {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.section-header.is-visible .section-title .word span {
+    transform: translateY(0);
+}
+
+/* --- NAVBAR LINK underline slide --- */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 4px; left: 50%;
+    width: 0; height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::before { width: 60%; }
+.nav-link.active::before { width: 40%; }
+
+/* Override titik lama */
+.nav-link.active::after { display: none; }
+
+/* =============================================
    SCROLLBAR & SELECTION
    ============================================= */
 ::-webkit-scrollbar { width: 6px; }
